@@ -111,25 +111,39 @@ app_license = "MIT"
 # }
 
 # Scheduled Tasks
-# ---------------
+# ------------------ THIS IS WHERE SCHEDULED TASKS ARE WRITTEN AND BACKGROUND JOBS EXECUTED
 
-# scheduler_events = {
-#	"all": [
-#		"library_management.tasks.all"
-#	],
-#	"daily": [
-#		"library_management.tasks.daily"
-#	],
-#	"hourly": [
-#		"library_management.tasks.hourly"
-#	],
-#	"weekly": [
-#		"library_management.tasks.weekly"
-#	],
-#	"monthly": [
-#		"library_management.tasks.monthly"
-#	],
-# }
+scheduler_events = {
+    ## defining custom background jobs
+    "cron": {
+        "* * * * *": [
+            "library_management.api.get_daily_weather"
+        ],
+        "* 0/6 * * *": [
+            "library_management.api.get_daily_weather"
+        ],
+        "0 8 * * *":[
+            "library_management.api.get_weekly_weather"
+        ],
+    },
+    
+	# "all": [
+	# 	"library_management.tasks.all"
+	# ],
+	# "daily": [
+	# 	"library_management.tasks.daily"
+	# ],
+	# "hourly": [
+	# 	"library_management.tasks.hourly"
+	# ],
+	# "weekly": [
+	# 	"library_management.tasks.weekly",
+    #     "library_management.api.get_weekly_weather",
+	# ],
+	# "monthly": [
+	# 	"library_management.tasks.monthly"
+	# ],
+}
 
 # Testing
 # -------

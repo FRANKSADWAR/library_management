@@ -1,0 +1,1 @@
+A new member, {{ doc.full_name }} has been registered to the library. 
