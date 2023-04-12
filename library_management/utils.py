@@ -17,7 +17,18 @@ def send_email(doc,recipients, subject, message, attachments=None):
 
 ## this is a hoo function in Frappe
 def test_hook(doc, event):
-    print(f"\n\n\n\n{doc} \n\n{event}")
+    print(f"\n\n\n\n{doc} {event}\n\n\n\n")
+
+def create_note_on_article(doc, event):
+    title = doc.article_name
+    notify_users = 1
+    public = 1
+    note = frappe.get_doc(({
+        "doctype": "Note",
+        "title": title,
+        "notify_users": notify_users,
+        "public": public
+    }))    
 
 
 
