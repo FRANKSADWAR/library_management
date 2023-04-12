@@ -33,8 +33,9 @@ def create_note_on_article(doc, event):
     }))    
     note.insert()
     frappe.db.commit()
+    
 
-    print("\n\n Insert succesfull \n\n\n")
+    print("\n\n Insert succesful \n\n\n")
 
 
 
