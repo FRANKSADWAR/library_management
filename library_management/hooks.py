@@ -109,7 +109,8 @@ doc_events = {
 	# 	"on_trash": "method"
 	# },
     "Article" : {
-		"validate" : "library_management.utils.test_hook"
+		"validate" : "library_management.utils.test_hook",
+        "after_insert":"library_management.utils.create_note_on_article",
 	}
 }
 
