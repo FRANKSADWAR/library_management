@@ -102,13 +102,16 @@ app_license = "MIT"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-#	"*": {
-#		"on_update": "method",
-#		"on_cancel": "method",
-#		"on_trash": "method"
-#	}
-# }
+doc_events = {
+	"*": {
+		"on_update": "method",
+		"on_cancel": "method",
+		"on_trash": "method"
+	},
+    "Article" : {
+		"validate" : "library_management.utils.test_hook"
+	}
+}
 
 # Scheduled Tasks
 # ------------------ THIS IS WHERE SCHEDULED TASKS ARE WRITTEN AND BACKGROUND JOBS EXECUTED
