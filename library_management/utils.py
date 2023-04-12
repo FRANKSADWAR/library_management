@@ -15,6 +15,7 @@ def send_email(doc,recipients, subject, message, attachments=None):
     enqueue(method=frappe.sendmail,queue="short",timeout=300,now=True, at_front=True,**email_args)    
 
 
+## this is a hoo function in Frappe
 def test_hook(doc, event):
     print(f"\n\n\n\n{doc} \n\n{event}")
 
