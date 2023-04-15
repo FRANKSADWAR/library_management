@@ -60,6 +60,7 @@ frappe.ui.form.on('Library Member', {
 
 });
 
+// Select the articles that have been written by this author based on a selection
 frappe.ui.form.on('Library Member', {
 	author: function(frm){
 	    let author = frm.doc.author;
