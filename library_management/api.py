@@ -13,8 +13,8 @@ def get_author_articles(author):
     return articles
 
 @frappe.whitelist()
-def get_all_articles(author):
-    all_authors = frappe.db.sql(""" SELECT name, article_name, author, publisher, isbn_number FROM `tabArticle` WHERE author =%s""",(author), as_dict=True)
+def get_all_articles(author, publisher):
+    all_authors = frappe.db.sql(""" SELECT name, article_name, author, publisher, isbn_number FROM `tabArticle` WHERE author =%s AND publisher =%s""",(author,publisher), as_dict=True)
     return all_authors
    
 

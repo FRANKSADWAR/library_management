@@ -4,7 +4,7 @@
 import frappe
 from frappe.model.document import DocStatus
 from frappe.model.document import Document
-from library_management.www.utils import send_email
+from library_management.utils import send_email
 
 
 

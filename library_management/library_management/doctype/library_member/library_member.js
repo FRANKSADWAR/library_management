@@ -64,7 +64,6 @@ frappe.ui.form.on('Library Member', {
 frappe.ui.form.on('Library Member', {
 	author: function(frm){
 	    let author = frm.doc.author;
-	    
 	    if(author){
 	        frappe.call({
 	            method: "library_management.api.get_author_articles",

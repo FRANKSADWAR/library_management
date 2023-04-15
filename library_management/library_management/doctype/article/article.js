@@ -6,16 +6,19 @@
 frappe.ui.form.on('Article', {
 	refresh: function(frm) {
 		var author = frm.doc.author;
+		var publisher = frm.doc.publisher;
 
 		frm.add_custom_button("Get Author Books",()=>{
-			console.log(frm.doc.author);
 			frappe.call({
-				method: "library_management.api.get_author_articles",
+				method: "library_management.api.get_all_articles",
 				args : {
-					author: author
+					author: author,
+					publisher: publisher
 				},
-				callback : function(r){
-
+				callback : function(response){
+					if(response){
+						console.log(response.message);
+					}
 				}
 			});
 		},"ACTIONS");
