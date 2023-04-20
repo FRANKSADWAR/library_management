@@ -12,6 +12,6 @@ PageContent = Class.extend({
 	},
 
 	make: function(){
-
+		let htmlContent = `<h2>Library App Page</h2>`;
 	}
 })
