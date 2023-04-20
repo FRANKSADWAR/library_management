@@ -1,8 +1,8 @@
 frappe.pages['library-app'].on_page_load = function(wrapper) {
-	
+	new PageContent(wrapper);
 }
 
-PageContent = Class.extend({
+var PageContent = Class.extend({
 	init: function(wrapper){
 		this.page = frappe.ui.make_app_page({
 			parent: wrapper,
@@ -13,5 +13,6 @@ PageContent = Class.extend({
 
 	make: function(){
 		let htmlContent = `<h2>Library App Page</h2>`;
+		$(frappe.render_template())
 	}
 })
