@@ -15,6 +15,7 @@ PageContent = Class.extend({
 	},
 	
 	make: function () {
+		
 		let htmlContent = `
 			<div class="container-fluid">
 				<div class="row">
@@ -23,19 +24,28 @@ PageContent = Class.extend({
 						<div class="card-body">
 							<h5 class="card-title">Card title</h5>
 							<p class="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>
-							<a href="#" class="btn btn-primary">Go somewhere</a>
+							<a id="counts" href="#" class="btn btn-primary">Articles : </a>
 						</div>
 						</div>
 					</div>
 
 					<div class="col-md-4">
-						<h2>Another piece of content</h2>
+						<h2></h2>
         			</div>
 				</div>
-
-				
 			</div>`;
 
+			let articles_count = function(){
+				frappe.call({
+					method: "library_management.library_management.page.library_app.library_api.get_article_count",
+					callback : function(response){
+						let articles = response.message;
+						$('a#counts').append(articles[0]['articleNumbers']);
+						console.log(articles);
+					}
+				})
+			}
+			articles_count();
 		// add the page to the parent DOM element which is the entire page
 		$(frappe.render_template(htmlContent, this)).appendTo(this.page.main);
 	},
