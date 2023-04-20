@@ -5,3 +5,5 @@ frappe.pages['library-app'].on_page_load = function(wrapper) {
 		single_column: true
 	});
 }
+
+PageContent = Class.extend()
