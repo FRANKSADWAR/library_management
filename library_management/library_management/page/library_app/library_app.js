@@ -45,6 +45,7 @@ PageContent = Class.extend({
 					}
 				})
 			}
+			// make the function call after being done right here
 			articles_count();
 		// add the page to the parent DOM element which is the entire page
 		$(frappe.render_template(htmlContent, this)).appendTo(this.page.main);
