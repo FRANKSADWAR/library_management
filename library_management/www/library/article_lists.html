@@ -1,21 +1,5 @@
 {% extends "templates/library_base.html" %}
 
 {% block page_content %}
-        <table>
-            <thead>
-                <tr>
-                    <th>Article</th>
-                    <th>Author</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for article in art_ %}
-                <tr>
-                    <td>{{  article['author_name'] }}</td>
-                    <td>{{ article['author'] }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-
+                
 {% endblock %}
