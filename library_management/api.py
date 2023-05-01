@@ -35,3 +35,17 @@ def get_daily_weather():
 def get_weekly_weather():
     frappe.msgprint("Obtained weekly weather data")
     
+
+
+## please investigate this code deeper
+def get_data(leadid, leadtype, prefix, name, mobile):
+    newData = frappe.get_doc({
+        "doctype": "Get Data Sample",
+        "leadid": leadid,
+        "leadtype":leadtype,
+        "prefix":prefix,
+        "name":name,
+        "mobile":mobile
+    })
+    newData.insert(ignore_permissions=True)
+    frappe.db.commit()
