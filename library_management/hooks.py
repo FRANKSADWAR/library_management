@@ -203,3 +203,13 @@ scheduler_events = {
 # auth_hooks = [
 #	"library_management.auth.validate"
 # ]
+
+
+## WEBSITE route rules 
+website_route_rules =[
+    {
+        "from_route":"/library/course/<name>",
+        "to_route":"library/course"
+        
+	}
+]
