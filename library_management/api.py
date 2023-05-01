@@ -55,3 +55,13 @@ def get_limited_articles():
     articles = frappe.db.sql(f""" SELECT name, creation, modified, article_name, author, publisher, status FROM `tabArticle` LIMIT 3,3;""",as_dict=True)
     return articles
     
+def paginate(doctype, page=0):
+    prev, next = 0,0
+    conditions = ""
+
+    query = f""" SELECT name, creation, modified, article_name, author, publisher, status FROM `tab{doctype}` {conditions};"""
+
+    if page:
+        pass
+    else:
+        count = frappe.db.sql(f""" SELECT COUNT(name) AS count  FROM `tab{doctype}` """,as_dict=True)[0].count
