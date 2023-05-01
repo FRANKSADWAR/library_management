@@ -206,6 +206,6 @@ scheduler_events = {
 
 
 ## WEBSITE route rules 
-website_route_rules =[
+website_route_rules = [
     { "from_route":"/library/course/<name>","to_route":"library/course" }
 ]
