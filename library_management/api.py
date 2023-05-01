@@ -37,7 +37,7 @@ def get_weekly_weather():
     
 
 
-## please investigate this code deeper
+## The code snippet below creates a new doc and then inserts it into the database and finally commits the transaction to the database
 def get_data(leadid, leadtype, prefix, name, mobile):
     newData = frappe.get_doc({
         "doctype": "Get Data Sample",
@@ -49,3 +49,9 @@ def get_data(leadid, leadtype, prefix, name, mobile):
     })
     newData.insert(ignore_permissions=True)
     frappe.db.commit()
+
+## Start at index 3 and return only the first three items 
+def get_limited_articles():
+    articles = frappe.db.sql(f""" SELECT name, creation, modified, article_name, author, publisher, status FROM `tabArticle` LIMIT 3,3;""",as_dict=True)
+    return articles
+    
