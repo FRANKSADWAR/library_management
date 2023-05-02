@@ -209,3 +209,10 @@ scheduler_events = {
 website_route_rules = [
     { "from_route":"/library/course/<name>","to_route":"library/course" }
 ]
+
+
+## USing fixtures
+
+fixtures = [
+    "Library Member"
+]
