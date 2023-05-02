@@ -19,3 +19,9 @@ class Article(Document):
 	# 	if (self.track_buyers == 0):
 	# 		if not self.buyers:
 	# 			frappe.throw("This article must track buyers")
+
+class Article(WebsiteGenerator):
+	def get_context(context):
+		pass
+
+

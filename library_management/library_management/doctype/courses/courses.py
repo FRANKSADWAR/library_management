@@ -5,4 +5,10 @@
 from frappe.model.document import Document
 
 class Courses(Document):
-	pass
+	def __init__(self):
+		self.course_name = str(self.course_name).upper()
+
+	def before_save(self):
+		if not (self.course_fee):
+			self.course_fee = 500
+			
