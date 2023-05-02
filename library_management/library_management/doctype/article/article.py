@@ -5,7 +5,7 @@ import frappe
 from frappe.model.document import Document
 from frappe.website.website_generator import WebsiteGenerator
 
-class Article(Document):
+class Article(WebsiteGenerator):
 	def validate(self):
 		if (self.track_buyers == 1):
 			if not self.buyers:
@@ -20,8 +20,6 @@ class Article(Document):
 	# 		if not self.buyers:
 	# 			frappe.throw("This article must track buyers")
 
-class Article(WebsiteGenerator):
-	def get_context(context):
-		pass
 
+	## All generator code can be writtent in this same class, no need to SubClass the Dcoument class
 
