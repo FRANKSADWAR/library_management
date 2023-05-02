@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_guest_to_view": 1,
  "allow_rename": 1,
  "autoname": "naming_series:",
  "creation": "2023-04-30 19:20:19.076561",
@@ -13,7 +14,8 @@
   "course_duration",
   "course_fee",
   "description",
-  "amended_from"
+  "amended_from",
+  "route"
  ],
  "fields": [
   {
@@ -55,12 +57,18 @@
    "options": "Courses",
    "print_hide": 1,
    "read_only": 1
+  },
+  {
+   "fieldname": "route",
+   "fieldtype": "Data",
+   "label": "route"
   }
  ],
- "index_web_pages_for_search": 1,
+ "has_web_view": 1,
+ "is_published_field": "course_name",
  "is_submittable": 1,
  "links": [],
- "modified": "2023-04-30 19:20:42.201824",
+ "modified": "2023-05-02 10:50:25.380707",
  "modified_by": "Administrator",
  "module": "Library Management",
  "name": "Courses",
@@ -81,6 +89,7 @@
    "write": 1
   }
  ],
+ "route": "available_courses",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
