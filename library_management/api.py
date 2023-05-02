@@ -59,7 +59,7 @@ def paginate(doctype, page=0):
     prev, next = 0,0
     conditions = ""
 
-    query = f""" SELECT name, creation, modified, article_name, author, publisher, status FROM `tab{doctype}` {conditions};"""
+    query = f""" SELECT name,article_name,author,publisher,isbn_number, status FROM `tab{doctype}` {conditions}"""
 
     ## Thic condition is used when there is a page existing in the link already i.e articles/?page=5
     if (page):
@@ -77,12 +77,11 @@ def paginate(doctype, page=0):
 
     ## This condition runs when the page is first loaded, i.e there is no page link that has been visited
     else:
-        count = frappe.db.sql(f""" SELECT COUNT(name) AS count  FROM `tab{doctype}`; """,as_dict=True)[0].count
+        count = frappe.db.sql(f""" SELECT COUNT(name) AS count  FROM `tab{doctype}` """,as_dict=True)[0].count
         if (count > 3):
             prev, next = 0,2
-        else:
-            pass    
-        articles = frappe.db.sql(query+ """ LIMIT 3""", as_dict=True)
+           
+        articles = frappe.db.sql(query + f""" LIMIT 3""",as_dict=True)
 
     return  {
         "articles" : articles,
