@@ -240,6 +240,20 @@
         </div>
         <!-- /course list -->
 
+        <!--Add the navigation buttons to the buttons -->
+        <div class="row">
+          <div class="btn-group" role="group">
+            {% if prev%}
+              <button type="button" class="btn btn-info"><a href="/?page={{prev}}">Previous</a></button>
+            {% endif %}
+            
+            {% if next%}
+              <button type="button" class="btn btn-primary"><a href="/?page={{next}}">Next</a></button>
+            {% endif %}
+          </div>
+        </div>
+
+
         <!-- mobile see all button -->
         <div class="row">
           <div class="col-12 text-center">
