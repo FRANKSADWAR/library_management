@@ -23,3 +23,4 @@ class Article(WebsiteGenerator):
 
 	## All generator code can be writtent in this same class, no need to SubClass the Dcoument class
 
+	## This is test
