@@ -6,8 +6,6 @@ from frappe.model.document import DocStatus
 from frappe.model.document import Document
 from library_management.utils import send_email
 
-
-
 class LibraryMember(Document):
 	##	This is one of the controller methods used in Frappe, there are several of them available
 	def get_full_name(self):
@@ -20,7 +18,6 @@ class LibraryMember(Document):
 			self.paid = 1
 		else:
 			self.paid =0	
-
 		try:
 			subject="NEW USER REGISTERED"
 			message="a new user {} has been registered to the Library management app".format(self.full_name)
@@ -30,8 +27,6 @@ class LibraryMember(Document):
 		except:
 			frappe.msgprint("Email config might be wrong")	
 		
-
-
 	def validate(self):
 		if self.paid:
 			frappe.msgprint("User has paid")
