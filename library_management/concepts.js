@@ -27,6 +27,17 @@ frappe.ui.form.on('Loan',{
             };
         });
 
+        // set the guarantors field such that an applicat cannot be a guarantor
+		frm.set_query("guarantor_name", function(doc,cdt,cdn){
+			return {
+				query: "library_management.loan_query.filter_customer_and_guarantors", // path to the whitelisted function
+				searchfields: "name",
+				filters : {
+					'customer_name':doc.applicant
+				}
+			}
+		});
+
         $.each(["penalty_income_account","interest_income_account"],function(i, field){
             frm.set_query(field,function(){
                 return {
@@ -39,4 +50,5 @@ frappe.ui.form.on('Loan',{
             });
         });
     }
+
 })
