@@ -7,6 +7,7 @@ frappe.ui.form.on('Loan',{
                 ]
             };
         });
+       
 
         frm.set_query("loan_type",function(){
             return {
@@ -28,7 +29,7 @@ frappe.ui.form.on('Loan',{
         });
 
         // set the guarantors field such that an applicat cannot be a guarantor
-		frm.set_query("guarantor_name", function(doc,cdt,cdn){
+		frm.set_query("customer_name", function(doc,cdt,cdn){
 			return {
 				query: "library_management.loan_query.filter_customer_and_guarantors", // path to the whitelisted function
 				searchfields: "name",
