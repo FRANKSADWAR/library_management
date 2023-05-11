@@ -39,6 +39,20 @@ frappe.ui.form.on('Loan',{
 			}
 		});
 
+        frm.set_query("customer_name",function(){
+            return {
+                query: "zadifatt_custom.query_api.get_defaulted_customers"
+            };
+        });
+
+        frm.set_query("customer_name",function(){
+			return {
+				"filters":[
+					["customer_name", "!=", frm.doc.applicant]
+				]
+			}
+		});
+
         $.each(["penalty_income_account","interest_income_account"],function(i, field){
             frm.set_query(field,function(){
                 return {
@@ -51,5 +65,7 @@ frappe.ui.form.on('Loan',{
             });
         });
     }
+
+    
 
 })
