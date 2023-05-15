@@ -1,6 +1,10 @@
 import frappe
 import requests
 import json, time
+from erpnext.accounts.utils import get_balance_on
+from erpnext.accounts.party import get_party_details, get_party_account
+from erpnext.accounts.general_ledger import make_gl_entries
+
 
 @frappe.whitelist()
 def get_all_members():
@@ -88,3 +92,20 @@ def paginate(doctype, page=0):
         "prev" : prev,
         "next" : next
     }    
+
+
+## get the balance of a customer
+@frappe.whitelist(allow_guest=True)
+def get_customer_balance(company,customer_name,cost_center=None):
+    if not frappe.has_permission("Account"):
+        frappe.msgprint(_("No Permissions to access accounts"),raise_exception=True)
+    account = get_party_account("Customer",customer_name,company)
+    account_balance = get_balance_on(account=account)
+    
+    party_balance = get_balance_on(party_type="Customer",party=customer_name,company=company)
+    
+    return {
+        "account": account,
+        "balance":account_balance,
+        "party_balance": party_balance
+    }
